@@ -5,7 +5,7 @@
 
 pkgname=pistache-git
 _name=${pkgname%-git}
-pkgver=1047.0c21c85
+pkgver=1319.a91cb1c
 pkgrel=1
 arch=('i686' 'x86_64')
 pkgdesc='Modern and elegant HTTP and REST framework for C++'
@@ -17,12 +17,18 @@ provides=("${_name}")
 conflicts=("${_name}")
 options=(staticlibs)
 url="https://github.com/oktal/${_name}"
-source=("${_name}::git://github.com/oktal/${_name}.git")
+source=("${_name}::git+https://github.com/oktal/${_name}.git")
 sha256sums=('SKIP')
 
 pkgver() {
   cd "${srcdir}/${_name}"
   echo "$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "${srcdir}/${_name}"
+  git checkout a91cb1c
+  patch -p1 <../../patch1.patch
 }
 
 build() {

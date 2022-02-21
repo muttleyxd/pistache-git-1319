@@ -1,6 +1,6 @@
 pkgbase = pistache-git
 	pkgdesc = Modern and elegant HTTP and REST framework for C++
-	pkgver = 1047.0c21c85
+	pkgver = 1319.a91cb1c
 	pkgrel = 1
 	url = https://github.com/oktal/pistache
 	arch = i686
@@ -12,8 +12,7 @@ pkgbase = pistache-git
 	provides = pistache
 	conflicts = pistache
 	options = staticlibs
-	source = pistache::git://github.com/oktal/pistache.git
+	source = pistache::git+https://github.com/oktal/pistache.git
 	sha256sums = SKIP
 
 pkgname = pistache-git
-
